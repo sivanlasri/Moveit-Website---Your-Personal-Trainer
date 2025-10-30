@@ -8,7 +8,7 @@ This project was developed as part of the **Web Application Development course**
 **Authors:** Shalev Turgeman, Sivan Lasri, David Ran Cohen.
 
 
-We identified a gap in free platforms that help users tailor fitness routines to their own needs  ,Moveit fills that gap by offering a structured, interactive, and visually engaging experience.
+We identified a gap in free platforms that help users tailor fitness routines to their own needs. Moveit fills that gap by offering a structured, interactive, and visually engaging experience.
 
 ---
 
