@@ -1,0 +1,580 @@
+/* Global Reset */
+:host, :host * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif !important;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Main body and background styling */
+:host {
+    padding-top: 65px;
+    background: url('../../../assets/images/homepage/flipped.jpg') no-repeat; 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    width: 100vw;
+    background-position: center;
+    align-items: center;
+    position: fixed; 
+    top: 0;           
+    left: 0;
+}
+
+/* Semi-transparent overlay effect */
+:host::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); 
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+
+/* Empty pseudo-element for additional styling (currently unused) */
+:host::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 110%; height: 110%;
+    z-index: -1;
+}
+
+
+/* Hamburger menu icon (hidden by default) */
+#menu-icon {
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+/* Centered large heading (e.g., "Build Your Body") */
+#headstart, h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 100vw;
+    text-align: center;
+    color: black;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px white;
+    margin-bottom: -22%;
+    margin-top: -19.5%;
+    font-family: 'Rock Salt', cursive !important;
+}
+
+/* Motivational section blocks with animation */
+.push, .move, .succeed {
+    display: flex;
+    max-width: 1200px;
+    background-color: transparent;
+    padding: 2%;
+    margin: 20px;
+    border-radius: 10px;
+    color: white;
+    gap: 20px;
+    animation: slideInLeft 1s ease-in-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Position and animation delay for each section */
+.push {
+    width: 40%;
+    margin-left: -1%;
+    justify-content: left;
+    text-align: right;
+    animation-delay: 0s;
+}
+.move {
+    width: 50%;
+    margin-left: -5%;
+    justify-content: center;
+    text-align: right;
+    animation-delay: 1s;
+}
+.succeed {
+    width: 50%;
+    margin-left: -5%;
+    justify-content: right;
+    text-align: right;
+    animation-delay: 2s;
+}
+
+/* Position and animation delay for each section */
+.succeed p {
+    margin-right: 10%;
+    padding-right: 100px;
+    padding-left: -80px;
+}
+
+/* Text and image inside motivational blocks */
+.push p, .move p, .succeed p {
+    font-size: 500%;
+    font-weight: bold;
+    width: 50%;
+    text-align: left;
+}
+.push img, .move img, .succeed img {
+    width: 160px;
+    height: auto;
+    border-radius: 30%;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+
+.push img:hover, .move img:hover, .succeed img:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0 20px black;
+}
+
+/* Animation for sliding in from the left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Sidebar block container */
+.sidebar-container {
+    position: absolute;
+    top: 30%;
+    right: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 800px;
+    justify-content: center;
+}
+.sidebar-container:hover{
+    cursor: pointer;
+}
+
+/* Single sidebar block */
+.sidebar {
+    width: 250px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sidebar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px black;
+}
+
+/* Larger sidebar block with delayed slide-in animation */
+.sidebar.large {
+    width: 100%;
+    height: 100px;
+    font-size: 22px;
+    opacity: 0;
+    animation: slideInRight 1s ease-in-out forwards;
+    animation-delay: 3s;
+}
+
+/* Slide-in animation from the right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slider container for image slides */
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.slider {
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slides container (flex layout) */
+.slides {
+    width: 500%;
+    height: 500px;
+    display: flex;
+    transition: 2s;
+}
+
+.slides input {
+    display: none;
+}
+
+/* Single slide */
+.slide {
+    width: 20%;
+}
+
+.slide img {
+    width: 800px;
+    height: 500px;
+}
+
+/* Manual navigation buttons */
+.navigation-manual {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background: white;
+}
+
+.manual-btn:last-child {
+    margin-right: 0;
+}
+
+/* Set slide position based on radio input */
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+/* Auto navigation dots */
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+.navigation-auto div {
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+    margin-right: 40px;
+}
+
+.navigation-auto div:last-child {
+    margin-right: 0;
+}
+
+/* Highlight current slide dot */
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background: white;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background: white;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background: white;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    background: white;
+}
+
+/* Training program box container */
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    background-color: transparent;
+    margin-bottom: 5%;
+    padding-top: 0;
+    position: relative;
+}
+
+#container > div {
+    height: 370px;
+    width: 335px;
+    background: #9d9999a7;
+    margin: 60px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10%;
+    box-shadow: 10px 10px 5px black;
+}
+
+/* Training images */
+#container img {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    padding-top: 5%;
+    background-color: #9d9999a7;
+}
+
+/* CTA Button */
+#container a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000ba;
+    color: white;
+    text-decoration: none;
+    border-radius: 15%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 0;
+}
+
+#container a:hover {
+    background-color: #ffffff;
+    color: black;
+    cursor: pointer;
+}
+
+/* Click icon inside CTA button */
+#click {
+    width: 30px !important;
+    height: 40px !important;
+    background-color: transparent !important;
+    margin-right: 7% !important;
+    margin-bottom: 0%;
+    margin-left: -20%;
+}
+
+/* Tablet view: רוחב עד 1024px */
+@media (max-width: 1024px) {
+    :host {
+      background-attachment: scroll; /* אולי לא כדאי להמשיך עם fixed בטאבלט */
+      padding-top: 50px;
+    }
+  
+    #headstart, h4 {
+      font-size: 36px;
+      margin-bottom: -15%;
+      margin-top: -12%;
+    }
+  
+    .push, .move, .succeed {
+      max-width: 90%;
+      flex-direction: column;
+      padding: 5%;
+      margin: 10px auto;
+      font-size: 250%;
+    }
+  
+    .push p, .move p, .succeed p {
+      width: 100%;
+      text-align: center;
+      font-size: 3rem; /* כ-48px */
+    }
+  
+    .push img, .move img, .succeed img {
+      width: 120px;
+      margin: 0 auto;
+    }
+  
+    .sidebar-container {
+      position: static;
+      flex-direction: column;
+      max-width: 100%;
+      margin: 0 auto 20px;
+    }
+  
+    .sidebar {
+      width: 90%;
+      height: auto;
+      font-size: 18px;
+      padding: 15px;
+      margin: 10px auto;
+    }
+  
+    .sidebar.large {
+      width: 90%;
+      height: auto;
+      font-size: 20px;
+      animation-delay: 1.5s;
+    }
+  
+    .slider {
+      width: 90%;
+      height: auto;
+    }
+  
+    .slide img {
+      width: 100%;
+      height: auto;
+    }
+  
+    #container {
+      flex-direction: column;
+      min-height: auto;
+    }
+  
+    #container > div {
+      width: 90%;
+      margin: 20px auto;
+      height: auto;
+      box-shadow: 5px 5px 10px black;
+    }
+  
+    #container img {
+      max-height: 180px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    :host {
+      padding-top: 50px;
+      background-attachment: scroll; /* fixed עלול ליצור בעיות בפלאפון */
+    }
+  
+    #headstart, h4 {
+      font-size: 32px !important;
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: center;
+      font-weight: 700;
+      color: #222;
+    }
+  
+    .push, .move, .succeed {
+      max-width: 100%;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      padding: 15px 10px;
+      margin: 15px 0;
+      font-size: 20px !important;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+  
+    .push p, .move p, .succeed p {
+      width: 100% !important;
+      text-align: center !important;
+      font-size: 1.8rem !important; /* כ-29px */
+      line-height: 1.4;
+      color: #333;
+      margin: 10px 0 0 0;
+    }
+  
+    .push img, .move img, .succeed img {
+      width: 140px !important;
+      max-width: 80%;
+      height: auto !important;
+      margin-bottom: 12px !important;
+    }
+  
+    .sidebar-container {
+      flex-direction: column !important;
+      max-width: 100% !important;
+      padding: 0 10px !important;
+      margin: 0 auto 25px auto !important;
+    }
+  
+    .sidebar {
+      width: 100% !important;
+      font-size: 16px !important;
+      padding: 12px 15px !important;
+      margin: 10px 0 !important;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      color: #444;
+    }
+  
+    .sidebar.large {
+      font-size: 18px !important;
+      padding: 15px 18px !important;
+      animation-delay: 1.5s;
+    }
+  
+    .slider {
+      width: 100% !important;
+      height: auto !important;
+      margin: 15px 0;
+    }
+  
+    .slide img {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+  
+    #container {
+      flex-direction: column !important;
+      padding: 0 10px !important;
+      margin: 0 auto;
+    }
+  
+    #container > div {
+      width: 100% !important;
+      margin: 20px auto !important;
+      height: auto !important;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      background-color: #fff;
+      padding: 15px;
+    }
+  
+    #container img {
+      max-height: 200px !important;
+      width: auto !important;
+      display: block;
+      margin: 0 auto;
+    }
+  
+    #click {
+      width: 30px !important;
+      height: 35px !important;
+      margin-left: 0 !important;
+    }
+  }

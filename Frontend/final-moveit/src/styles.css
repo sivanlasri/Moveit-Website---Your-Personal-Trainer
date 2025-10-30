@@ -1,0 +1,33 @@
+/* 
+  Styles for the #headstart and #programs sections:
+  These sections are designed as large, full viewport height containers 
+  that center their content both vertically and horizontally using flexbox.
+  The text inside is large, black with a subtle white glow for emphasis.
+  Negative margins adjust the vertical positioning to overlap or shift the sections visually.
+  The font 'Rock Salt' is applied for a handwritten, casual style.
+  
+  Additionally, all <a> links are styled to have no underline and inherit
+  the surrounding text color for a cleaner look.
+*/
+
+#headstart, #programs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 100vw;
+    text-align: center;
+    color: black;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px white;
+    margin-bottom: -22%;
+    margin-top: -20%;
+    font-family: 'Rock Salt', cursive !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+

@@ -1,0 +1,127 @@
+<app-header></app-header>
+
+<!-- Main call-to-action title -->
+<div>
+  <b><a id="headstart">Build Your Body!</a></b>
+</div>
+
+<!-- Motivational content blocks -->
+<div class="sidebar-container">
+  <div class="sidebar" id="firstBox">
+    <h2 style="color: black;">FUEL</h2>
+    <p>How many times in your life have you wanted to make a change but felt like you lacked the knowledge and tools for success?</p>
+  </div>
+  <div class="sidebar" id="secBox">
+    <h2>YOUR</h2>
+    <p style="color: black;">How many times have you arrived at the gym and felt like you didn't know what to do and ended up retiring to the treadmill?</p>
+  </div>
+  <div class="sidebar" id="thiBox">
+    <h2 style="color: black;">DRIVE</h2>
+    <p>How many times have you wondered if you're wasting your time or if you're even doing things right?</p>
+  </div>
+  <div class="sidebar large">
+    <h2 style="color: black;">MOVEIT</h2>
+
+   <p style="color: red; font-size: 40px; margin-top: 0; text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;">
+  <a [routerLink]="buttonLink" style="color: red; text-decoration: none;">
+    {{ buttonText }}
+  </a>
+</p>
+
+
+  </div>
+</div>
+
+<!-- Motivational sections with images -->
+<section class="push">
+  <p>PUSH.</p>
+  <img src="../../../assets/images/homepage/push.jpg" height="200" width="200" alt="push pic">
+</section>
+
+<section class="move">
+  <p>MOVE.</p>
+  <img src="../../../assets/images/homepage/move.jpeg" height="200" width="200" alt="push pic">
+</section>
+
+<section class="succeed">
+  <p>SUCCEED.</p>
+  <img src="../../../assets/images/homepage/messi.jpg" height="200" width="200" alt="push pic">
+</section>
+
+<!-- Image slider with automatic/manual navigation -->
+<div class="slider-container">
+  <div class="slider">
+    <div class="slides">
+      <input type="radio" name="radio-btn" id="radio1">
+      <input type="radio" name="radio-btn" id="radio2">
+      <input type="radio" name="radio-btn" id="radio3">
+      <input type="radio" name="radio-btn" id="radio4">
+
+      <div class="slide first">
+        <img src="../../../assets/images/homepage/1.jpg" alt="slide 1">
+      </div>
+      <div class="slide">
+        <img src="../../../assets/images/homepage/2.png" alt="slide 2">
+      </div>
+      <div class="slide">
+        <img src="../../../assets/images/homepage/3.jpg" alt="slide 3">
+      </div>
+      <div class="slide">
+        <img src="../../../assets/images/homepage/4.png" alt="slide 4">
+      </div>
+
+      <div class="navigation-auto">
+        <div class="auto-btn1"></div>
+        <div class="auto-btn2"></div>
+        <div class="auto-btn3"></div>
+        <div class="auto-btn4"></div>
+      </div>
+    </div>
+
+    <div class="navigation-manual">
+      <label for="radio1" class="manual-btn"></label>
+      <label for="radio2" class="manual-btn"></label>
+      <label for="radio3" class="manual-btn"></label>
+      <label for="radio4" class="manual-btn"></label>
+    </div>
+  </div>
+</div>
+
+<h4 id="programs">Our Programs:</h4>
+
+<!-- Training program cards -->
+<div id="container">
+  <div>
+    <br><b>Back Training</b>
+    <img src="../../../assets/images/homepage/back.png" alt="Back Training">
+    <a href="#"><img id="click" src="../../../assets/images/homepage/click.png" alt="click">Click here <br> and find out more!</a>
+  </div>
+  <div>
+    <br><b>Gluttes Training</b>
+    <img src="../../../assets/images/homepage/gluttes.png" alt="Gluttes Training">
+    <a href="#"><img id="click" src="../../../assets/images/homepage/click.png" alt="click">Click here <br> and find out more!</a>
+  </div>
+  <div>
+    <br><b>Forehand Training</b>
+    <img src="../../../assets/images/homepage/yadkidmit.jpg" alt="Forehand Training">
+    <a href="#"><img id="click" src="../../../assets/images/homepage/click.png" alt="click">Click here <br> and find out more!</a>
+  </div>
+  <div>
+    <br><b>Backhand Training</b>
+    <img src="../../../assets/images/homepage/yadahurit.jpg" alt="Backhand Training">
+    <a href="#"><img id="click" src="../../../assets/images/homepage/click.png" alt="click">Click here <br> and find out more!</a>
+  </div>
+  <div>
+    <br><b>Chest Training</b>
+    <img src="../../../assets/images/homepage/chest.jpg" alt="Chest Training">
+    <a href="#"><img id="click" src="../../../assets/images/homepage/click.png" alt="click">Click here <br> and find out more!</a>
+  </div>
+</div>
+
+<br><br><br>
+
+<app-footer></app-footer>

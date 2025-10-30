@@ -1,0 +1,69 @@
+<!-- Main container for the registration screen -->
+<div class="registerScreen">
+  <!-- Registration form with Angular Template-driven form -->
+  <form #healthForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <!-- Page heading -->
+    <h1 style="padding-bottom: 7px;">Registration</h1>
+
+    <!-- Container for health declaration text -->
+    <div class="healthDiv">
+      <div class="healthDec">
+
+        <!-- Introductory paragraph about health declaration -->
+        <p>
+          <b>Health Declaration for Using the Workout Program Website:</b><br /><br />
+          I, the undersigned, <b>declare that I am medically fit</b> to participate in physical activity according to the training programs offered on this website.
+          I understand that physical activity may involve significant physical exertion,
+          <b>and I am responsible for ensuring that my health condition allows me to participate safely.</b><br /><br />
+        </p>
+
+        <!-- Confirmation heading -->
+        <p>
+          <b>I confirm that:</b>
+        </p>
+
+        <!-- List of health conditions user agrees to -->
+        <ol>
+          <li>I am in good health and do not suffer from medical conditions that may interfere with or endanger me during physical activity.</li><br />
+          <li>I am not under any medical restrictions that prevent me from exercising, or I have consulted a physician and received approval to participate in the training programs.</li><br />
+          <li>I understand that the content on the website is for general guidance only and does not replace professional medical advice.</li><br />
+          <li>I am responsible for using the training programs according to my personal ability and health condition, and to stop exercising in case of discomfort, pain, or any medical issue.</li><br />
+        </ol>
+      </div>
+    </div>
+
+    <br />
+
+    <!-- Checkbox for agreement to terms, bound with two-way binding -->
+    <div class="agreement-container">
+      <input
+        type="checkbox"
+        id="healthCheck"
+        name="agreement"
+        [(ngModel)]="agreement"
+        required 
+      /><!-- Make checkbox required for form submission -->
+
+
+      <label id="agreement" for="healthCheck">
+        I confirm that I've read and understood the above and agree to the terms.
+      </label>
+    </div>
+
+    <!-- Validation message shown only if user submitted form without checking agreement -->
+    <div *ngIf="!agreement && healthForm.submitted" style="color: red; text-align: center; padding-top: 1%;">
+      You must agree to the terms.
+    </div>
+
+     <!-- Submit button -->
+    <button type="submit" class="send">
+      Next
+    </button>
+
+    <!-- Decorative progress image -->
+    <div class="prog">
+      <img src="../../../assets/images/registrate/start.png" alt="Progress" />
+    </div>
+  </form>
+</div>

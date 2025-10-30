@@ -1,0 +1,206 @@
+<div class="registerScreen">
+    <!-- Registration form with Angular template-driven form and submit event -->
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+    <!-- Page title -->
+    <h1 style="padding-bottom: 7px;">Registration</h1>
+
+    <div class="input-box">
+      <!-- Full Name input field -->
+      <div class="input-field">
+        <!-- [(ngModel)]="fullName" = Two-way data binding to fullName variable -->
+        <!-- #fullNameCtrl="ngModel"= Template reference variable for validation -->
+        <!-- pattern= Regex: at least two capitalized English words -->
+        <input
+          type="text"
+          name="fullName"
+          [(ngModel)]="fullName" 
+          #fullNameCtrl="ngModel"
+          placeholder="Full Name"
+          pattern="([A-Z][a-z]+)(\s[A-Z][a-z]+)*"
+          title="Full name must have at least two capitalized words in English."
+          required
+        />
+        <!-- Show error message if fullName is invalid and user touched the field or form submitted -->
+        <div *ngIf="fullNameCtrl.invalid && (fullNameCtrl.dirty || registerForm.submitted)" style="color:#e57373; text-align: center; font-weight: bold;">
+          Full name is missing or invalid.
+        </div>
+        <!-- Icon next to input -->
+        <img src="../../../assets/images/registrate/fullName.png" width="30" height="30" />
+      </div>
+
+      <!-- Username input field -->
+      <div class="input-field">
+        <!-- [(ngModel)]="username"= Two-way binding - data talks with UI and updates the code and viseversa -->
+        <!-- #userNameCtrl="ngModel"= Validation reference -->
+        <!-- (blur)="checkUsername()"= Check if username is taken when input loses focus -->
+        <!-- pattern="^(?=.*[A-Z])(?=.*[a-z]).*$"= Must contain uppercase and lowercase letter -->
+        <input
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          #userNameCtrl="ngModel"
+          (blur)="checkUsername()"
+          placeholder="Username"
+          pattern="^(?=.*[A-Z])(?=.*[a-z]).*$"
+          title="Username must contain at least one uppercase and one lowercase letter"
+          required
+        />
+        <!-- Show warning if username is already taken -->
+        <div *ngIf="usernameTaken" style="color: orange; text-align: center; font-weight: bold;">
+          This username is already registered.
+        </div>
+        <!-- Show error if username invalid and touched or submitted -->
+        <div *ngIf="userNameCtrl.invalid && (userNameCtrl.dirty || registerForm.submitted)" style="color:#e57373; text-align: center; font-weight: bold;">
+          UserName is missing or invalid.
+        </div>
+        <img src="../../../assets/images/registrate/muscle.png" width="30" height="30" />
+      </div>
+    </div>
+
+    <div class="input-box">
+      <!-- Email input field -->
+      <div class="input-field">
+        <!-- (blur)="checkEmail()"= Check if email is already registered on blur -->
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          #emailCtrl="ngModel"
+          (blur)="checkEmail()"
+          placeholder="Email"
+          required
+        />
+        <!-- Show warning if email is taken -->
+        <div *ngIf="emailTaken" style="color: orange; text-align: center; font-weight: bold;">
+          This email is already registered.
+        </div>
+        <!-- Show error if email invalid and touched or submitted -->
+        <div *ngIf="emailCtrl.invalid && (emailCtrl.dirty || registerForm.submitted)" style="color:#e57373; text-align: center; font-weight: bold;">
+          Email is missing or invalid.
+        </div>
+        <img src="../../../assets/images/registrate/email.png" width="30" height="30" />
+      </div>
+
+      <!-- Phone number input field -->
+      <div class="input-field">
+        <img src="../../../assets/images/registrate/phone.png" width="30" height="30" />
+        <!-- pattern="05[0-9]{1}[0-9]{7}"= Pattern for Israeli phone numbers starting with 05 -->
+        <input
+          type="tel"
+          name="phone"
+          [(ngModel)]="phone"
+          #phoneCtrl="ngModel"
+          placeholder="Phone Number"
+          pattern="05[0-9]{1}[0-9]{7}"
+          required
+        />
+        <!-- Show error if phone invalid and touched or submitted -->
+        <div *ngIf="phoneCtrl.invalid && (phoneCtrl.dirty || registerForm.submitted)" style="color:#e57373; text-align: center; font-weight: bold;">
+          Phone is missing or invalid.
+        </div>
+      </div>
+    </div>
+
+    <div class="input-box">
+      <!-- Password input field -->
+      <div class="input-field">
+         <!-- (input)="checkPasswordsMatch()"= Check if passwords match on input -->    
+         <!-- pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).+$" = Password with uppercase, lowercase, digit, special char -->
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          #passwordCtrl="ngModel"
+          (input)="checkPasswordsMatch()"
+          placeholder="Password"
+          pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).+$"
+          required
+        />
+         <!-- Show error if password invalid and touched or submitted -->
+        <div *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || registerForm.submitted)" style="color:#e57373; text-align: center; font-weight: bold;">
+          Password is missing or invalid.
+        </div>
+        <img src="../../../assets/images/registrate/lock.png" width="30" height="30" />
+      </div>
+
+      <!-- Confirm password input field -->
+      <div class="input-field">
+         <!--(input)="checkPasswordsMatch()" = Check if passwords match on input -->
+        <input
+          type="password"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          (input)="checkPasswordsMatch()"
+          placeholder="Confirm Password"
+          required
+        />
+        <!-- Show error if passwords do not match -->
+        <div *ngIf="!passwordsMatch && confirmPassword" style="color:#e57373; text-align: center; font-weight: bold;">
+          Passwords do not match.
+        </div>
+        <img src="../../../assets/images/registrate/lock.png" width="30" height="30" />
+      </div>
+    </div>
+
+    <div class="input-box">
+      <!-- Gender select dropdown -->
+      <div class="input-field">
+        <img src="../../../assets/images/registrate/fm.png" width="30" height="30" />
+        <select
+         name="gender"
+         [(ngModel)]="gender"
+         #genderCtrl="ngModel"
+         required>
+          <option value="" disabled selected hidden>Gender</option>
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+        </select>
+        <!-- Show error if gender not selected -->
+        <div *ngIf="genderCtrl.invalid && (genderCtrl.dirty || registerForm.submitted)" style="color:#e57373; text-align: center; font-weight: bold;">
+          Gender is missing.
+        </div>
+      </div>
+    
+
+       <!-- Birthdate input field -->
+      <div class="input-field date-wrapper">
+        <img src="../../../assets/images/registrate/cake.png" id="cake" width="30" height="30" />
+
+        <label class="date-label">
+            <input
+              type="date"
+              name="birthdate"
+              [(ngModel)]="birthdate"
+              
+              #birthdateCtrl="ngModel"
+              required
+            />
+            <!-- Error message if birthdate is missing -->
+            <div *ngIf="birthdateCtrl.invalid && (birthdateCtrl.dirty || registerForm.submitted)"
+                style="color:#e57373; text-align: center; font-weight: bold;">
+              Birthdate is missing.
+            </div>
+
+              <!-- Error message if user is under 14 years old -->
+            <div *ngIf="birthdate && !isAtLeast14YearsOld(birthdate) && (birthdateCtrl.dirty || registerForm.submitted)"
+                style="color:#e57373; text-align: center; font-weight: bold;">
+              You must be at least 14 years old.
+            </div>
+
+          <!-- Placeholder text that hides when date is selected -->
+          <span class="placeholder-text" [class.hidden]="birthdate">Birthdate</span>
+        </label>
+      </div>
+
+
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="send">Next</button>
+
+    <!-- Progress image below the form -->
+    <div class="prog">
+      <img src="../../../assets/images/registrate/Prog1.png" />
+    </div>
+  </form>
+</div>

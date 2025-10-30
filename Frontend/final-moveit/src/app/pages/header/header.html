@@ -1,0 +1,38 @@
+<header>
+  <!-- Logo linking to the home page -->
+  <a routerLink="/" class="logo">
+    <img src="../../../assets/images/homepage/Logo.png" alt="Moveit Logo" height="65.3px" width="191px">
+  </a>
+
+  <!-- Navigation links -->
+  <ul class="navbar">
+    <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    </li>
+    <li><a routerLink="/about">About Us</a></li>
+    <li><a routerLink="/recommend">Our Recommendation</a></li>
+    <li><a routerLink="/plan">Our Plan</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+  </ul>
+
+  <!-- Login/Register or Profile/Logout based on authentication -->
+  <div class="main">
+    <!-- Show Sign In if not logged in -->
+    <a *ngIf="!username" (click)="login()" class="user">
+      <img src="../../../assets/images/homepage/fullName.png" height="30" width="30">Sign In
+    </a>
+    <!-- Show Register if not logged in -->
+    <a *ngIf="!username" (click)="registrate()">Register</a>
+
+    <!-- Show greeting and profile if logged in -->
+    <a *ngIf="username" routerLink="/profile" class="user">
+      <img src="../../../assets/images/homepage/fullName.png" height="30" width="30">Hello {{ username }}
+    </a>
+
+    <!-- Logout button if logged in -->
+    <a *ngIf="username" (click)="logout()">Log Out</a>
+
+    <!-- Mobile menu icon (for other resolutions) -->
+    
+  </div>
+</header>

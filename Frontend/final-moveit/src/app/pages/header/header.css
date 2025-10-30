@@ -1,0 +1,95 @@
+
+/* Main header container */
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 1px ;
+    transition: all .50s ease;
+    backdrop-filter: blur(20px);
+    opacity: 0.8;
+    background-color: red;
+}
+/* Logo container */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* Logo image inside the logo container */
+.logo img {
+    font-size: 28px;
+    margin-right: 5px;
+}
+
+/* Navigation bar container */
+.navbar {
+  display: flex;
+  margin-left: 60px;
+  list-style: none; /* מבטל את הנקודות */
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual nav links */
+.navbar a {
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 15px 0;
+    margin: 15px 30px;
+    transition: all .50s ease;
+    margin-right: 15px; /* רווח בין המילים */
+}
+
+/* Hover effect for nav links */
+.navbar a:hover {
+    color: grey;
+}
+
+/* Style for active navigation link */
+.navbar a.active{
+  color: white;
+}
+
+
+/* Main section on right side of the header (login/logout, profile, etc.) */
+.main {
+    display: flex;
+    align-items: center;
+}
+.main a {
+    margin-right: 25px;
+    margin-left: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+.main img {
+    vertical-align: middle;
+}
+.main a:hover {
+    color: grey;
+}
+
+/* User image + text link container */
+.user {
+    display: flex;
+    align-items: center;
+}
+.user img {
+    margin-right: 7px;
+}
+
+/* Cursor pointer for header actions */
+.main:hover{
+    cursor: pointer;
+}

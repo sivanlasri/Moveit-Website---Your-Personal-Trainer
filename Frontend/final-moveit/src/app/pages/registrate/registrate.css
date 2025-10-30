@@ -1,0 +1,374 @@
+/* Reset margins and paddings for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Main container styling */
+:host {
+  display: flex;
+  justify-content: center; /* Center the registration screen horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background: url('../../../assets/images/login/loginBack.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed; /* So the background stays in place */
+  top: 0;
+  left: 0;
+}
+
+/* Dark overlay over the background image */
+:host::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+  z-index: -1; /* ensures content stays above */
+}
+
+/* Registration form container */
+.registerScreen {
+  width: 750px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.registerScreen h1 {
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px 5px red;
+}
+
+/* Individual input field wrapper */
+.registerScreen .input-field {
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 20px 0;
+}
+
+/* Groups of two fields side by side */
+.registerScreen .input-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Style each field box */
+.input-box .input-field {
+  position: relative;
+  width: 49%;
+  margin: 13px 0;
+  height: 50px;
+  min-height: 50px;
+  transition: height 0.3s ease;
+}
+
+/* Text input field styling */
+.input-field input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 15px 15px 15px 57px; /* space for icon */
+}
+
+.input-field input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 10px 2px 5px black;
+}
+
+.input-field input::data-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 10px 2px 5px black;
+}
+
+/* Icon styling inside input */
+.input-field img {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Styling for <select> dropdowns */
+.input-field select {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 12px 15px 12px 57px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Default select option color */
+.input-field select option {
+  color: #000;
+}
+
+/* Placeholder-like color when no value is selected */
+.input-field select:invalid {
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 10px 2px 5px black;
+}
+
+/* Forgot password link container */
+.registerScreen .Forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  padding-bottom: 10px;
+  padding-left: 2%;
+}
+
+.Forgot a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.Forgot a:hover {
+  text-decoration: underline;
+}
+
+/* Submit button styling */
+.registerScreen .send {
+  width: 100%;
+  height: 45px;
+  background: red;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 650;
+  opacity: 0.8;
+  margin-top: 2%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Button hover effect */
+.registerScreen .send:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px rgba(240, 240, 240, 0.5);
+}
+
+/* Registration links below the button */
+.registerScreen .registration {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 15px 0 10px;
+}
+
+.registration a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.registration a:hover {
+  text-decoration: underline;
+}
+
+/* Progress bar image */
+.prog img {
+  align-items: center;
+  padding-left: 31%;
+  padding-top: 2%;
+}
+
+/* Date input styling */
+.input-field input[type="date"] {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  direction: ltr;
+  color: transparent; /* Transparent until valid */
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 40px;
+  font-size: 16px;
+  padding: 15px 15px 15px 57px;
+  width: 100%;
+  height: 100%;
+  transition: color 0.3s ease;
+}
+
+/* when the field is full, fill the text with white color*/
+.input-field input[type="date"]:valid {
+  color: white;
+}
+
+/* Date picker icon */
+.input-field input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 15px;
+  filter: invert(100%);
+  z-index: 3;
+}
+
+/* Custom placeholder before user selects a date */
+.input-field input[type="date"]::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  left: 57px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  pointer-events: none;
+  z-index: 1;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+/* Hide placeholder once date is valid */
+.input-field input[type="date"]:valid::before {
+  opacity: 0;
+  content: '';
+}
+
+/* Date wrapper positioning */
+.date-wrapper {
+  position: relative;
+}
+
+/* Date label wrapper */
+.date-label {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Placeholder text inside date field */
+.placeholder-text {
+  position: absolute;
+  top: 50%;
+  left: 57px;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 10px 2px 5px black;
+  pointer-events: none;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+/* Hide placeholder when user selected a date */
+.placeholder-text.hidden {
+  opacity: 0;
+}
+
+/* Date field appearance */
+.date-wrapper input[type="date"] {
+  color: transparent; /* מוסתר כברירת מחדל */
+}
+
+.date-wrapper input[type="date"]:valid {
+  color: white;
+}
+
+
+/* ====== MEDIA QUERIES ====== */
+
+/* Desktop and larger screens (above 1024px) */
+@media (min-width: 1025px) {
+  .registerScreen {
+    width: 750px;
+    padding: 30px 40px;
+  }
+
+  .input-box .input-field {
+    width: 49%;
+    margin: 13px 0;
+  }
+
+  .prog img {
+    padding-left: 31%;
+    padding-top: 2%;
+  }
+}
+
+/* Tablets (between 768px and 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .registerScreen {
+    width: 550px;
+    padding: 25px 30px;
+  }
+
+  .input-box {
+    flex-direction: column;
+  }
+
+  .input-box .input-field {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .prog img {
+    padding-left: 20%;
+    padding-top: 2%;
+  }
+}
+
+/* Mobile phones (below 768px) */
+@media (max-width: 767px) {
+  :host {
+    padding: 0 15px;
+  }
+
+  .registerScreen {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 0;
+  }
+
+  .input-box {
+    flex-direction: column;
+  }
+
+  .input-box .input-field {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .registerScreen h1 {
+    font-size: 28px;
+  }
+
+  .prog img {
+    padding-left: 15%;
+    padding-top: 5%;
+  }
+}

@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+/* Importing Poppins font */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+/* Full-screen background for the page */
+:host {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 100vh;
+  width: 100vw;
+  background: url('../../../assets/images/registrate/loginBack.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Semi-transparent overlay to darken the background */
+:host::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: -1; /* Send it behind the content */
+}
+
+/* Main container for the message and button */
+.registerScreen{
+    width: 750px;
+    background:transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(20px); /* Frosted glass effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+/* Styling the message text */
+.registerScreen p{
+    font-family: "Poppins",sans-serif;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 8px black; /* Black shadow behind text */
+}
+
+/* Styling the button */
+.registerScreen .send{
+    width: 100%;
+    height: 45px;
+    background: red;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .60);
+    cursor: pointer;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600; /* Text thickness */
+    opacity: 0.8;
+    margin-top: 2%;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+/* Button hover effect */
+.registerScreen .send:hover{
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0px 0px 20px rgba(240, 240, 240, 0.5); /* Light glow on hover */
+}
+
+/* Container for the progress image */
+.prog {
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+}
+
+/* Styling the progress image */
+.prog img {
+    width: 40%; /* Set image width */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 2%;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+/* Importing Poppins font */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+/* Full-screen background for the page */
+:host {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 100vh;
+  width: 100vw;
+  background: url('../../../assets/images/registrate/loginBack.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Semi-transparent overlay to darken the background */
+:host::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: -1; /* Send it behind the content */
+}
+
+/* Main container for the message and button */
+.registerScreen{
+    width: 750px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(20px); /* Frosted glass effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    margin: 0 auto;
+}
+
+/* Styling the message text */
+.registerScreen p{
+    font-family: "Poppins",sans-serif;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 8px black; /* Black shadow behind text */
+}
+
+/* Styling the button */
+.registerScreen .send{
+    width: 100%;
+    height: 45px;
+    background: red;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .60);
+    cursor: pointer;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600; /* Text thickness */
+    opacity: 0.8;
+    margin-top: 2%;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+/* Button hover effect */
+.registerScreen .send:hover{
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0px 0px 20px rgba(240, 240, 240, 0.5); /* Light glow on hover */
+}
+
+/* Container for the progress image */
+.prog {
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+}
+
+/* Styling the progress image */
+.prog img {
+    width: 40%; /* Set image width */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 2%;
+}
+
+/* --- התאמות רספונסיביות לפלאפונים וטאבלטים --- */
+@media screen and (max-width: 767px) {
+  .registerScreen {
+    width: 90%; /* תופס כמעט את כל רוחב המסך */
+    padding: 20px 15px; /* פחות רווחים לפלאפון */
+    border-width: 1px;
+  }
+
+  .registerScreen p {
+    font-size: 20px; /* טקסט קטן יותר */
+  }
+
+  .registerScreen .send {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .prog img {
+    width: 60%; /* תמונה גדולה יותר במסכים קטנים */
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* טאבלטים */
+  .registerScreen {
+    width: 600px; /* רוחב בינוני */
+    padding: 25px 30px;
+  }
+
+  .registerScreen p {
+    font-size: 25px;
+  }
+
+  .registerScreen .send {
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .prog img {
+    width: 50%;
+  }
+}

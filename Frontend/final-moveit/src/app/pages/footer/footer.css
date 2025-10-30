@@ -1,0 +1,135 @@
+
+/* Main footer container */
+footer{
+    position: relative;
+    width: 100%;
+    background: #fe4444;
+    min-height: 100px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .social_icon,
+footer .menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 10px;
+  flex-wrap: wrap;
+  margin-left: -45px; 
+}
+
+
+/* Remove bullets from list items */
+footer .social_icon li, footer .menu li{
+    list-style: none;
+}
+
+/* Style for each social media icon link */
+footer .social_icon li a{
+    font-size: 2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+/* Hover effect: lift icon up slightly */
+footer .social_icon li a:hover{
+    transform: translateY(-10px);
+}
+
+/* Style for each menu link */
+footer .menu li a{
+    font-size: 1.2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+/* Hover effect for menu links */
+footer .menu li a:hover{
+    opacity: 1;
+}
+
+/* Style for copyright text */
+footer p{
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Style for the decorative wave elements */
+footer .wave{
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('../../../assets/images/footImg/newnewWave.png');
+    background-size: 1000px 100px;
+}
+
+/* First wave layer */
+footer .wave#wave1
+{
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave 4s linear infinite;
+}
+
+/* Second wave layer */
+footer .wave#wave2
+{
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animateWave_02 4s linear infinite;
+}
+
+/* Third wave layer */
+footer .wave#wave3
+{
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWave 3s linear infinite;
+}
+
+/* Fourth wave layer */
+footer .wave#wave4
+{
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animateWave_02 3s linear infinite;
+}
+
+/* First animation: moves wave background from right to left */
+@keyframes animateWave{
+    0%{
+        background-position-x:1000px ;
+    }
+    100%{
+        background-position-x:0px ;
+    }
+}
+
+/* Second animation: moves wave background from left to right */
+@keyframes animateWave_02{
+    0%{
+        background-position-x:0px ;
+    }
+    100%{
+        background-position-x:1000px ;
+    }
+}

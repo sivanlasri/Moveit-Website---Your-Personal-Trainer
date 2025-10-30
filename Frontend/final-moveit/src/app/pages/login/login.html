@@ -1,0 +1,47 @@
+<div class="loginScreen">
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <h1 style="padding-bottom: 7px;">Login</h1>
+
+    <div class="input-field">
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="username"
+        id="username"
+        placeholder="Username"
+        (input)="clearError()"
+        required
+      />
+      <img src="assets/images/login/muscle.png" width="30" height="30" />
+    </div>
+
+    <div class="input-field">
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        id="password"
+        placeholder="Password"
+        (input)="clearError()"
+        required
+      />
+      <img src="assets/images/login/lock.png" width="30" height="30" />
+    </div>
+
+    <div class="Forgot">
+      <a href="#">Forgot password?</a>
+    </div>
+
+     <!-- Error Login Message -->
+      <div *ngIf="loginError" style="color: red; text-align: center; margin-top: 10px; font-weight: bold;">
+        {{loginError}}
+     </div>
+
+
+    <button type="submit" class="send">Login</button>
+
+    <div class="registration">
+       <a (click)="goToRegister()">Create Account</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,84 @@
+<app-header></app-header>
+
+<!-- Main call-to-action title -->
+<div>
+  <b><br><a id="headstart">Your workout preferences:</a></b>
+</div>
+
+<div>
+    <b><br><a id="Explain">Please Pick the right answer about your preferences:</a> </b>
+</div>
+
+<!-- Progress Bar מותאם אישית בצד -->
+<div class="progress-sidebar">
+  <div class="progress-bg">
+    <div class="progress-rectangle"></div>
+    <div class="progress-frame"></div>
+    <div class="progress-text">
+      Welcome. Start your journey now with our management system!
+    </div>
+    <div class="step step-1"  [class.active]="isStepActive(1)" [class.completed]="isStepCompleted(1)">
+      <div class="step-circle" [class.completed]="isStepCompleted(1)">
+      </div>
+      <div class="step-label">Step 1<br>Fitness level</div>
+      <div class="step-number" [class.completed]="isStepCompleted(1)">1</div>
+    </div>
+    <div class="step step-2" [class.active]="isStepActive(2)" [class.completed]="isStepCompleted(2)">
+      <div class="step-circle" [class.completed]="isStepCompleted(2)"></div>
+      <div class="step-label">Step 2<br>Goal</div>
+      <div class="step-number" [class.completed]="isStepCompleted(2)">2</div>
+    </div>
+    <div class="step step-3" [class.active]="isStepActive(3)" [class.completed]="isStepCompleted(3)">
+      <div class="step-circle" [class.completed]="isStepCompleted(3)"></div>
+      <div class="step-label">Step 3<br>Available days</div>
+      <div class="step-number" [class.completed]="isStepCompleted(3)">3</div>
+    </div>
+    <div class="step step-4" [class.active]="isStepActive(4)" [class.completed]="isStepCompleted(4)">
+      <div class="step-circle" [class.completed]="isStepCompleted(4)"></div>
+      <div class="step-label">Step 4<br>Training time</div>
+      <div class="step-number" [class.completed]="isStepCompleted(4)">4</div>
+    </div>
+  </div>
+</div>
+
+<!-- תוכן השאלון -->
+<main class="quiz-container" *ngIf="!isCompleted">
+  <h1 class="quiz-title">{{ question }}</h1>
+
+<div class="question-box" [class.five-options]="currentStep === 4">
+  <div
+    class="answer"
+    *ngFor="let option of options; let i = index"
+    [class.selected]="selectedAnswer === option"
+    (click)="selectAnswer(option)"
+    tabindex="0"
+    (keydown.enter)="selectAnswer(option)"
+    (keydown.space)="selectAnswer(option)"
+    role="button"
+    [attr.aria-pressed]="selectedAnswer === option ? 'true' : 'false'"
+  >
+    <img [src]="getIcon(i)" alt="" class="answer-icon" />
+    {{ option }}
+  </div>
+</div>
+
+  <button class="next-btn" (click)="next()" [disabled]="!selectedAnswer">
+    Next Question
+  </button>
+</main>
+
+<main class="quiz-container" *ngIf="isCompleted">
+  <h1 class="quiz-title">Summary</h1>
+
+  <div class="summary-box">
+  <div *ngFor="let item of summaryKeys">
+    <strong>{{ item.label }}:</strong> {{ answers[item.key] }}
+  </div>
+</div>
+
+
+  <button class="confirm-btn" (click)="confirm()">Confirm</button>
+  <button class="restart-btn" (click)="restart()">Start Over</button>
+</main>
+
+<app-footer></app-footer>
